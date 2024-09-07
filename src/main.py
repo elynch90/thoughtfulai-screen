@@ -1,3 +1,6 @@
+from argparse import ArgumentParser
+
+
 def sort(width: float, height: float, length: float, mass: float) -> str:
     """Sort the package based on its dimensions and mass.
     --------------------------
@@ -33,9 +36,13 @@ def sort(width: float, height: float, length: float, mass: float) -> str:
 
 def main():
     # test the function
-    print("Testing the function")
-    width, height, length, mass = 10, 10, 10, 10
-    label = sort(width, height, length, mass)
+    parser = ArgumentParser()
+    parser.add_argument("--width", type=float, default=10)
+    parser.add_argument("--height", type=float, default=10)
+    parser.add_argument("--length", type=float, default=10)
+    parser.add_argument("--mass", type=float, default=10)
+    args = parser.parse_args()
+    label = sort(args.width, args.height, args.length, args.mass)
     print(f'Label: {label}')
     assert label == "STANDARD", "Test failed"
     print("Test passed")
