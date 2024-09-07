@@ -44,8 +44,6 @@ def main():
     args = parser.parse_args()
     label = sort(args.width, args.height, args.length, args.mass)
     print(f'Label: {label}')
-    assert label == "STANDARD", "Test failed"
-    print("Test passed")
 
 
 if __name__ == "__main__":
